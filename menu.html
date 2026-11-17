@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodGo — Меню</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container navbar">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">F</span>
+      <span>Food<span class="orange">Go</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Главная</a>
+      <a href="restaurants.html">Рестораны</a>
+      <a href="menu.html" class="active">Меню</a>
+      <a href="about.html">О нас</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="contacts.html" class="register-btn">Оформить заказ</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">ВКУСНОЕ УЖЕ ЖДЁТ</span>
+      <h1>Наше <span class="orange">меню</span></h1>
+      <p>От любимой пиццы до традиционного плова — выбирайте блюда и наслаждайтесь вкусом!</p>
+
+      <div class="page-navigation">
+        <a href="#pizza">Пицца</a>
+        <a href="#burgers">Бургеры</a>
+        <a href="#national">Узбекская кухня</a>
+        <a href="#desserts">Десерты</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-content" id="pizza">
+    <div class="container">
+      <h2 class="page-title">Популярные блюда</h2>
+      <p class="page-description">Самые любимые позиции наших покупателей.</p>
+
+      <div class="page-cards">
+
+        <article class="page-card">
+          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=85" alt="Пицца">
+          <div class="page-card-info">
+            <h3>Пицца Маргарита</h3>
+            <p>Томатный соус, сыр моцарелла и свежий базилик.</p>
+            <b class="orange">55 000 сум</b>
+          </div>
+        </article>
+
+        <article class="page-card" id="burgers">
+          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=85" alt="Бургер">
+          <div class="page-card-info">
+            <h3>Классический бургер</h3>
+            <p>Говяжья котлета, сыр, салат и фирменный соус.</p>
+            <b class="orange">42 000 сум</b>
+          </div>
+        </article>
+
+        <article class="page-card" id="national">
+          <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=85" alt="Плов">
+          <div class="page-card-info">
+            <h3>Плов по-узбекски</h3>
+            <p>Рис, говядина, морковь и ароматная зира.</p>
+            <b class="orange">35 000 сум</b>
+          </div>
+        </article>
+
+        <article class="page-card">
+          <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=800&q=85" alt="Роллы">
+          <div class="page-card-info">
+            <h3>Роллы Филадельфия</h3>
+            <p>Рис, нори, сливочный сыр и лосось.</p>
+            <b class="orange">48 000 сум</b>
+          </div>
+        </article>
+
+        <article class="page-card">
+          <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=85" alt="Самса">
+          <div class="page-card-info">
+            <h3>Самса с мясом</h3>
+            <p>Хрустящее тесто и сочная мясная начинка.</p>
+            <b class="orange">12 000 сум</b>
+          </div>
+        </article>
+
+        <article class="page-card" id="desserts">
+          <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=85" alt="Десерт">
+          <div class="page-card-info">
+            <h3>Сладкий десерт</h3>
+            <p>Нежный десерт для приятного завершения обеда.</p>
+            <b class="orange">25 000 сум</b>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="promo-section">
+    <div class="container promo-box">
+      <div class="promo-content">
+        <span class="promo-small">СПЕЦИАЛЬНО ДЛЯ ВАС</span>
+        <h2>Больше вкуса —<br>больше <span>радости!</span></h2>
+        <p>Выбирайте любимые блюда и открывайте новые вкусы вместе с FoodGo.</p>
+        <a href="restaurants.html" class="promo-btn">Выбрать ресторан →</a>
+      </div>
+      <div class="promo-image-wrap">
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=900&q=90" alt="Вкусная пицца">
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-bottom">
+    <a href="index.html">FoodGo</a>
+    <span>© 2026 FoodGo. Все права защищены.</span>
+    <a href="contacts.html">Контакты</a>
+  </div>
+</footer>
+
+</body>
+</html>

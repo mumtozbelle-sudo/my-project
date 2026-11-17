@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodGo — Контакты</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container navbar">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">F</span>
+      <span>Food<span class="orange">Go</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Главная</a>
+      <a href="restaurants.html">Рестораны</a>
+      <a href="menu.html">Меню</a>
+      <a href="about.html">О нас</a>
+      <a href="contacts.html" class="active">Контакты</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="menu.html" class="register-btn">Заказать еду</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">МЫ ВСЕГДА НА СВЯЗИ</span>
+      <h1>Свяжитесь <span class="orange">с нами!</span></h1>
+      <p>Есть вопросы или предложения? Мы будем рады вашему сообщению. Команда FoodGo всегда готова помочь!</p>
+    </div>
+  </section>
+
+  <section class="page-content">
+    <div class="container">
+      <div class="contact-layout">
+
+        <div>
+          <span class="eyebrow">НАПИШИТЕ НАМ</span>
+          <h2 class="page-title">Оставьте сообщение</h2>
+          <p class="page-description">Заполните форму, и мы обязательно свяжемся с вами.</p>
+
+          <form class="contact-form" id="contactForm">
+            <input type="text" placeholder="Ваше имя" required>
+            <input type="email" placeholder="Ваш e-mail" required>
+            <input type="text" placeholder="Тема сообщения" required>
+            <textarea placeholder="Ваше сообщение..." required></textarea>
+            <button class="register-btn" type="submit">Отправить сообщение →</button>
+          </form>
+        </div>
+
+        <div class="contact-info">
+          <article class="page-feature">
+            <h3>📞 Телефон</h3>
+            <p>+998 90 123 45 67</p>
+          </article>
+
+          <article class="page-feature">
+            <h3>✉️ Электронная почта</h3>
+            <p>hello@foodgo.uz</p>
+          </article>
+
+          <article class="page-feature">
+            <h3>📍 Наш адрес</h3>
+            <p>Ташкент, Узбекистан</p>
+          </article>
+
+          <article class="page-feature">
+            <h3>🕒 Время работы</h3>
+            <p>Ежедневно: 09:00–23:00</p>
+          </article>
+
+          <article class="page-feature">
+            <h3>💬 Социальные сети</h3>
+            <p>Следите за новостями FoodGo и нашими специальными предложениями.</p>
+          </article>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="page-content" style="background:#fff3e8;">
+    <div class="container">
+      <div class="section-heading center">
+        <span>МЫ РЯДОМ</span>
+        <h2>FoodGo в Ташкенте</h2>
+        <p>Мы стремимся сделать доставку любимой еды удобной для каждого.</p>
+      </div>
+
+      <div class="page-feature" style="margin-top:30px; text-align:center;">
+        <h3>📍 Ташкент, Узбекистан</h3>
+        <p>Наша команда работает над тем, чтобы вкусные блюда были ближе к вам.</p>
+        <a href="restaurants.html" class="register-btn" style="margin-top:20px;">Посмотреть рестораны</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-bottom">
+    <a href="index.html">FoodGo</a>
+    <span>© 2026 FoodGo. Все права защищены.</span>
+    <a href="about.html">О FoodGo</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Спасибо! Ваше сообщение отправлено (демо-форма).');
+    this.reset();
+  });
+</script>
+
+</body>
+</html>

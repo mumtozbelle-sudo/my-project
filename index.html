@@ -1,0 +1,629 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodGo — Вкусно. Быстро. Рядом.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container navbar">
+    <a href="#home" class="logo">
+      <span class="logo-icon">F</span>
+      <span>Food<span class="orange">Go</span></span>
+    </a>
+
+   <nav class="nav-links" id="navLinks">
+  <a href="index.html" class="active">Главная</a>
+  <a href="restaurants.html">Рестораны</a>
+  <a href="menu.html">Меню</a>
+  <a href="about.html">О нас</a>
+  <a href="contacts.html">Контакты</a>
+</nav>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="searchBtn" aria-label="Поиск">⌕</button>
+      <button class="icon-btn" onclick="openCart()" aria-label="Корзина">
+        🛒 <span id="cartCount">0</span>
+      </button>
+      <button class="login-btn" onclick="openAuth('Войти')">Войти</button>
+      <button class="register-btn" onclick="openAuth('Регистрация')">Регистрация</button>
+      <button class="burger" id="burger">☰</button>
+    </div>
+  </div>
+
+  <div class="container search-box" id="searchBox">
+    <input type="text" id="searchInput" placeholder="Найти любимое блюдо...">
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <span class="eyebrow">Быстро. Вкусно. Рядом.</span>
+
+      <h1>
+        Любимая еда —<br>
+        <span>прямо к вашей</span><br>
+        <span>двери!</span>
+      </h1>
+
+      <p class="hero-text">
+        Заказывайте любимые блюда из лучших ресторанов
+        вашего города. Быстро, удобно и с удовольствием!
+      </p>
+
+      <form class="address-form" id="addressForm">
+        <span class="location-icon">⌖</span>
+        <input type="text" placeholder="Введите ваш адрес" required>
+        <button type="submit">Найти еду</button>
+      </form>
+
+      <div class="hero-rating">
+        <div class="avatars">
+          <span>А</span><span>М</span><span>Д</span>
+        </div>
+        <b>4,9</b>
+        <span>по оценкам 15 000+ клиентов</span>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-circle"></div>
+      <img
+        class="hero-image"
+        src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1100&q=90"
+        alt="Вкусная еда">
+
+      <div class="rating-bubble">
+        <span>★</span> 4,9
+      </div>
+
+      <div class="delivery-bubble">
+        <span class="clock">◷</span>
+        <div>
+          <b>Доставка от 30 минут</b>
+          <small>Привезём горячим</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories section" id="categories">
+  <div class="container">
+    <div class="section-heading">
+      <span>ВЫБИРАЙТЕ ПО НАСТРОЕНИЮ</span>
+      <h2>Что вы хотите заказать?</h2>
+    </div>
+
+    <div class="category-grid">
+      <a href="#menu" class="category-card">
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=400&q=85" alt="Пицца">
+        <b>Пицца</b><small>от 12 000 сум</small>
+      </a>
+      <a href="#menu" class="category-card">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=85" alt="Бургеры">
+        <b>Бургеры</b><small>от 12 000 сум</small>
+      </a>
+      <a href="#menu" class="category-card">
+        <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=400&q=85" alt="Суши">
+        <b>Суши и роллы</b><small>от 12 000 сум</small>
+      </a>
+      <a href="#menu" class="category-card">
+        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=400&q=85" alt="Узбекская кухня">
+        <b>Узбекская кухня</b><small>от 12 000 сум</small>
+      </a>
+      <a href="#menu" class="category-card">
+        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=400&q=85" alt="Здоровое питание">
+        <b>Здоровое питание</b><small>от 12 000 сум</small>
+      </a>
+      <a href="#menu" class="category-card">
+        <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=400&q=85" alt="Десерты">
+        <b>Десерты</b><small>от 12 000 сум</small>
+      </a>
+      <a href="#menu" class="category-card">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=85" alt="Напитки">
+        <b>Напитки</b><small>от 12 000 сум</small>
+      </a>
+      <a href="#menu" class="category-card">
+        <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=400&q=85" alt="Фастфуд">
+        <b>Фастфуд</b><small>от 12 000 сум</small>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- RESTAURANTS -->
+<section class="restaurants section" id="restaurants">
+  <div class="container">
+    <div class="heading-row">
+      <div class="section-heading">
+        <span>ВЫБОР ПОЛЬЗОВАТЕЛЕЙ</span>
+        <h2>Популярные рестораны</h2>
+      </div>
+      <a href="#menu" class="see-all">Смотреть все →</a>
+    </div>
+
+    <div class="restaurant-grid">
+      <article class="restaurant-card">
+        <div class="restaurant-photo">
+          <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=85" alt="Osh Markazi">
+          <span class="discount-label">−20%</span>
+          <button class="heart" aria-label="В избранное">♡</button>
+        </div>
+        <div class="restaurant-info">
+          <div class="card-title"><h3>Osh Markazi</h3><b>★ 4,9</b></div>
+          <p>Узбекская кухня · 240+ отзывов</p>
+          <div class="restaurant-meta"><span>◷ 25–35 мин</span><span>Доставка 10 000 сум</span></div>
+          <a href="#menu" class="menu-link">Открыть меню</a>
+        </div>
+      </article>
+
+      <article class="restaurant-card">
+        <div class="restaurant-photo">
+          <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=800&q=85" alt="Burger House">
+          <span class="discount-label">Популярное</span>
+          <button class="heart" aria-label="В избранное">♡</button>
+        </div>
+        <div class="restaurant-info">
+          <div class="card-title"><h3>Burger House</h3><b>★ 4,8</b></div>
+          <p>Американская кухня · 240+ отзывов</p>
+          <div class="restaurant-meta"><span>◷ 20–30 мин</span><span>Доставка 10 000 сум</span></div>
+          <a href="#menu" class="menu-link">Открыть меню</a>
+        </div>
+      </article>
+
+      <article class="restaurant-card">
+        <div class="restaurant-photo">
+          <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=85" alt="Pizza Time">
+          <span class="discount-label">−15%</span>
+          <button class="heart" aria-label="В избранное">♡</button>
+        </div>
+        <div class="restaurant-info">
+          <div class="card-title"><h3>Pizza Time</h3><b>★ 4,7</b></div>
+          <p>Итальянская кухня · 240+ отзывов</p>
+          <div class="restaurant-meta"><span>◷ 30–40 мин</span><span>Доставка 10 000 сум</span></div>
+          <a href="#menu" class="menu-link">Открыть меню</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- BESTSELLERS -->
+<section class="bestsellers section" id="menu">
+  <div class="container">
+    <div class="heading-row">
+      <div class="section-heading">
+        <span>САМОЕ ЛЮБИМОЕ</span>
+        <h2>Хиты продаж</h2>
+      </div>
+      <a href="#menu" class="see-all">Всё меню →</a>
+    </div>
+
+    <div class="food-grid">
+      <article class="food-card" data-name="Плов по-узбекски">
+        <div class="food-photo">
+          <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=85" alt="Плов">
+          <span class="food-tag">Хит</span>
+          <button class="heart">♡</button>
+        </div>
+        <div class="food-info">
+          <small>350 г · ★ 4,9</small>
+          <h3>Плов по-узбекски</h3>
+          <p>Рис лазер, нежная говядина, морковь и ароматная зира</p>
+          <div class="food-bottom">
+            <b>35 000 сум</b>
+            <button class="add-btn" onclick="addToCart('Плов по-узбекски',35000)">+</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="food-card" data-name="Лаваш с курицей">
+        <div class="food-photo">
+          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=85" alt="Лаваш">
+          <span class="food-tag">Популярное</span>
+          <button class="heart">♡</button>
+        </div>
+        <div class="food-info">
+          <small>350 г · ★ 4,9</small>
+          <h3>Лаваш с курицей</h3>
+          <p>Сочная курица, свежие овощи и фирменный соус</p>
+          <div class="food-bottom">
+            <b>28 000 сум</b>
+            <button class="add-btn" onclick="addToCart('Лаваш с курицей',28000)">+</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="food-card" data-name="Самса с мясом">
+        <div class="food-photo">
+          <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=700&q=85" alt="Самса">
+          <span class="food-tag">Хит</span>
+          <button class="heart">♡</button>
+        </div>
+        <div class="food-info">
+          <small>350 г · ★ 4,9</small>
+          <h3>Самса с мясом</h3>
+          <p>Хрустящее тесто и рубленая говядина с луком</p>
+          <div class="food-bottom">
+            <b>12 000 сум</b>
+            <button class="add-btn" onclick="addToCart('Самса с мясом',12000)">+</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="food-card" data-name="Классический бургер">
+        <div class="food-photo">
+          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=85" alt="Бургер">
+          <span class="food-tag">Хит</span>
+          <button class="heart">♡</button>
+        </div>
+        <div class="food-info">
+          <small>350 г · ★ 4,9</small>
+          <h3>Классический бургер</h3>
+          <p>Мраморная говядина, чеддер и свежие овощи</p>
+          <div class="food-bottom">
+            <b>42 000 сум</b>
+            <button class="add-btn" onclick="addToCart('Классический бургер',42000)">+</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROMO -->
+<section class="promo-section">
+  <div class="container promo-box">
+    <div class="promo-content">
+      <span class="promo-small">СПЕЦИАЛЬНО ДЛЯ ВАС</span>
+      <h2>Вкусные моменты<br>со скидкой <span>20%</span></h2>
+      <p>Первый заказ в FoodGo станет ещё приятнее! Получите скидку на любимые блюда.</p>
+      <a href="#menu" class="promo-btn">Заказать сейчас →</a>
+      <small>*Предложение действует для новых пользователей</small>
+    </div>
+    <div class="promo-image-wrap">
+      <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=900&q=90" alt="Пицца со скидкой">
+      <div class="promo-sticker">−20%<small>СКИДКА</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section section" id="about">
+  <div class="container about-grid">
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=900&q=85" alt="Ресторан FoodGo">
+      <div class="about-badge"><b>15 000+</b><small>довольных клиентов</small></div>
+    </div>
+    <div class="about-content">
+      <div class="section-heading">
+        <span>ПОЧЕМУ FOODGO?</span>
+        <h2>Доставка, которая делает ваш день вкуснее</h2>
+      </div>
+      <p>Мы объединяем любимые рестораны в одном месте, чтобы вы могли легко находить и заказывать вкусную еду.</p>
+      <div class="benefit">
+        <span>✓</span><div><b>Быстрая доставка</b><small>Ваш заказ приедет горячим и вовремя</small></div>
+      </div>
+      <div class="benefit">
+        <span>✓</span><div><b>Большой выбор</b><small>Блюда на любой вкус и настроение</small></div>
+      </div>
+      <div class="benefit">
+        <span>✓</span><div><b>Удобный заказ</b><small>Всего несколько шагов — и еда уже в пути</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO ORDER -->
+<section class="how-section section" id="how">
+  <div class="container">
+    <div class="section-heading center">
+      <span>ВСЁ ПРОСТО И УДОБНО</span>
+      <h2>Как заказать?</h2>
+      <p>Всего четыре шага отделяют вас от любимой еды!</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-icon">⌕</div><span class="step-number">01</span>
+        <h3>Выберите ресторан</h3>
+        <p>Найдите ресторан или блюдо по своему вкусу.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-icon">🛒</div><span class="step-number">02</span>
+        <h3>Добавьте в корзину</h3>
+        <p>Выберите любимые блюда и добавьте их в заказ.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-icon">📍</div><span class="step-number">03</span>
+        <h3>Укажите адрес</h3>
+        <p>Напишите адрес, куда нужно доставить заказ.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-icon">🚴</div><span class="step-number">04</span>
+        <h3>Получите заказ</h3>
+        <p>Ожидайте курьера и наслаждайтесь вкусной едой!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATISTICS -->
+<section class="stats-section">
+  <div class="container stats-grid">
+    <div><b>15 000+</b><span>Довольных клиентов</span></div>
+    <div><b>120+</b><span>Ресторанов</span></div>
+    <div><b>30 мин</b><span>Среднее время доставки</span></div>
+    <div><b>4,9 ★</b><span>Средняя оценка</span></div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section section">
+  <div class="container">
+    <div class="section-heading center">
+      <span>ВАШИ ВПЕЧАТЛЕНИЯ</span>
+      <h2>Что говорят наши клиенты?</h2>
+    </div>
+    <div class="review-grid">
+      <article class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>«Очень удобный сервис! Большой выбор блюд, а доставка всегда быстрая. Теперь заказываю только здесь!»</p>
+        <div class="review-author"><span>А</span><div><b>Алина</b><small>Постоянный клиент</small></div></div>
+      </article>
+      <article class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>«Всё очень просто: выбрал блюдо, оформил заказ — и вкусная еда уже у двери. Отличный сервис!»</p>
+        <div class="review-author"><span>М</span><div><b>Мадина</b><small>Постоянный клиент</small></div></div>
+      </article>
+      <article class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>«Понравился большой выбор ресторанов и приятные скидки. Всё красиво, понятно и удобно!»</p>
+        <div class="review-author"><span>Д</span><div><b>Даврон</b><small>Постоянный клиент</small></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section">
+  <div class="container newsletter-box">
+    <div>
+      <span>БУДЬТЕ В КУРСЕ</span>
+      <h2>Вкусные новости и скидки!</h2>
+      <p>Подпишитесь, чтобы первыми узнавать о специальных предложениях.</p>
+    </div>
+    <form id="subscribeForm">
+      <input type="email" placeholder="Ваш e-mail" required>
+      <button type="submit">Подписаться</button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" id="contacts">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="#home" class="logo footer-logo">
+        <span class="logo-icon">F</span>
+        <span>Food<span class="orange">Go</span></span>
+      </a>
+      <p>Вкусная еда рядом. Заказывайте любимые блюда быстро, удобно и с удовольствием!</p>
+      <div class="socials">
+        <a href="#contacts">𝕗</a>
+        <a href="#contacts">◎</a>
+        <a href="#contacts">➤</a>
+        <a href="#contacts">▶</a>
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <h3>Навигация</h3>
+      <a href="#home">Главная</a>
+      <a href="#restaurants">Рестораны</a>
+      <a href="#menu">Меню</a>
+      <a href="#about">О нас</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>Покупателям</h3>
+      <a href="#how">Как заказать?</a>
+      <a href="#how">Доставка</a>
+      <a href="#contacts">Оплата</a>
+      <a href="#contacts">Помощь</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>Контакты</h3>
+      <a href="tel:+998901234567">+998 90 123 45 67</a>
+      <a href="mailto:hello@foodgo.uz">hello@foodgo.uz</a>
+      <span>Ташкент, Узбекистан</span>
+      <span>Ежедневно: 09:00–23:00</span>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <span>© 2026 FoodGo. Все права защищены.</span>
+    <span>Создано с ♥ для любителей вкусной еды</span>
+  </div>
+</footer>
+
+<!-- AUTH MODAL -->
+<div class="modal-overlay" id="authModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('authModal')">×</button>
+    <span class="eyebrow">FOODGO</span>
+    <h2 id="authTitle">Войти</h2>
+    <p>Добро пожаловать в FoodGo!</p>
+    <form id="authForm">
+      <input type="text" placeholder="Ваше имя или e-mail" required>
+      <input type="password" placeholder="Пароль" required>
+      <button type="submit" class="register-btn" id="authSubmit">Войти</button>
+    </form>
+  </div>
+</div>
+
+<!-- CART MODAL -->
+<div class="modal-overlay" id="cartModal">
+  <div class="modal cart-modal">
+    <button class="modal-close" onclick="closeModal('cartModal')">×</button>
+    <span class="eyebrow">ВАШ ЗАКАЗ</span>
+    <h2>Корзина 🛒</h2>
+    <div id="cartItems">Корзина пока пуста.</div>
+    <div class="cart-total" id="cartTotal">Итого: 0 сум</div>
+    <button class="register-btn full-btn" onclick="checkout()">Оформить заказ</button>
+  </div>
+</div>
+
+<div class="toast" id="toast">Добавлено в корзину!</div>
+
+<script>
+  let cart = [];
+
+  function addToCart(name, price) {
+    cart.push({name, price});
+    document.getElementById('cartCount').textContent = cart.length;
+    document.getElementById('toast').textContent = name + ' добавлено в корзину!';
+    document.getElementById('toast').classList.add('show');
+    setTimeout(() => document.getElementById('toast').classList.remove('show'), 2000);
+  }
+
+  function openCart() {
+    const items = document.getElementById('cartItems');
+    const totalBox = document.getElementById('cartTotal');
+
+    if (cart.length === 0) {
+      items.innerHTML = '<p>Корзина пока пуста. Выберите что-нибудь вкусное!</p>';
+      totalBox.textContent = 'Итого: 0 сум';
+    } else {
+      items.innerHTML = cart.map(item =>
+        '<div class="cart-row"><span>' + item.name + '</span><b>' +
+        item.price.toLocaleString('ru-RU') + ' сум</b></div>'
+      ).join('');
+
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+      totalBox.textContent = 'Итого: ' + total.toLocaleString('ru-RU') + ' сум';
+    }
+
+    openModal('cartModal');
+  }
+
+  function checkout() {
+    if (!cart.length) {
+      alert('Сначала добавьте блюда в корзину!');
+      return;
+    }
+    alert('Спасибо! Это демонстрационное оформление заказа FoodGo.');
+    cart = [];
+    document.getElementById('cartCount').textContent = '0';
+    closeModal('cartModal');
+  }
+
+  function openModal(id) {
+    document.getElementById(id).classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function openAuth(title) {
+    document.getElementById('authTitle').textContent = title;
+    document.getElementById('authSubmit').textContent = title;
+    openModal('authModal');
+  }
+
+  document.getElementById('authForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Демонстрационная форма FoodGo!');
+    this.reset();
+    closeModal('authModal');
+  });
+
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === this) {
+        this.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+
+  document.getElementById('burger').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+
+  document.getElementById('searchBtn').addEventListener('click', () => {
+    document.getElementById('searchBox').classList.toggle('open');
+    document.getElementById('searchInput').focus();
+  });
+
+  document.getElementById('searchInput').addEventListener('input', function() {
+    const value = this.value.toLowerCase();
+    document.querySelectorAll('.food-card').forEach(card => {
+      card.style.display = card.dataset.name.toLowerCase().includes(value) ? '' : 'none';
+    });
+  });
+
+  document.getElementById('addressForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('menu').scrollIntoView({behavior: 'smooth'});
+  });
+
+  document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Спасибо за подписку!');
+    this.reset();
+  });
+
+  // Избранное
+  document.querySelectorAll('.heart').forEach(button => {
+    button.addEventListener('click', () => {
+      button.classList.toggle('liked');
+      button.textContent = button.classList.contains('liked') ? '♥' : '♡';
+    });
+  });
+
+  // Плавное появление секций
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.12});
+
+  document.querySelectorAll('.category-card, .restaurant-card, .food-card, .step-card, .review-card, .benefit').forEach(el => {
+    el.classList.add('reveal');
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
