@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -6,6 +7,32 @@
   <title>FoodGo — Рестораны</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .cart-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border: 2px solid #ff8b38;
+      border-radius: 12px;
+      color: #ff8b38;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .cart-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 23px;
+      height: 23px;
+      padding: 0 6px;
+      border-radius: 50px;
+      background: #ff8b38;
+      color: white;
+      font-size: 13px;
+    }
+  </style>
 </head>
 <body>
 
@@ -15,7 +42,7 @@
       <span class="logo-icon">F</span>
       <span>Food<span class="orange">Go</span></span>
     </a>
-    <nav class="nav-links">
+    <nav class="nav-links" id="navLinks">
       <a href="index.html">Главная</a>
       <a href="restaurants.html" class="active">Рестораны</a>
       <a href="menu.html">Меню</a>
@@ -24,6 +51,8 @@
     </nav>
     <div class="nav-actions">
       <a href="menu.html" class="register-btn">Заказать еду</a>
+      <a href="menu.html" class="cart-link">🛒 Корзина <span class="cart-count">0</span></a>
+      <button class="burger" id="burger" type="button" aria-label="Открыть меню" aria-controls="navLinks" aria-expanded="false">☰</button>
     </div>
   </div>
 </header>
@@ -91,7 +120,7 @@
         </article>
 
         <article class="page-card">
-          <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=85" alt="Домашняя еда">
+          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=85" alt="Домашняя еда">
           <div class="page-card-info">
             <h3>Домашняя кухня</h3>
             <p>★ 4,8 · Домашние блюда</p>
@@ -122,6 +151,42 @@
     <a href="contacts.html">Связаться с нами</a>
   </div>
 </footer>
+
+<script>
+  const CART_KEY = "foodgo_cart";
+
+  function updateCartCount() {
+    let cart = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+    let total = cart.reduce((sum, item) => sum + Number(item.quantity || 0), 0);
+
+    document.querySelectorAll(".cart-count").forEach(counter => {
+      counter.textContent = total;
+    });
+  }
+
+  updateCartCount();
+
+  window.addEventListener("storage", updateCartCount);
+</script>
+
+<script>
+  const burgerButton = document.getElementById('burger');
+  const navigation = document.getElementById('navLinks');
+
+  burgerButton.addEventListener('click', () => {
+    const isOpen = navigation.classList.toggle('open');
+    burgerButton.setAttribute('aria-expanded', String(isOpen));
+    burgerButton.textContent = isOpen ? '×' : '☰';
+  });
+
+  navigation.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navigation.classList.remove('open');
+      burgerButton.setAttribute('aria-expanded', 'false');
+      burgerButton.textContent = '☰';
+    });
+  });
+</script>
 
 </body>
 </html>

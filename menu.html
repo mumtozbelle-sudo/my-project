@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -6,6 +7,132 @@
   <title>FoodGo — Меню</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    .cart-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border: 2px solid #ff8b38;
+      border-radius: 12px;
+      color: #ff8b38;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .cart-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 23px;
+      height: 23px;
+      padding: 0 6px;
+      border-radius: 50px;
+      background: #ff8b38;
+      color: white;
+      font-size: 13px;
+    }
+
+    .add-to-cart {
+      margin-top: 12px;
+      width: 42px;
+      height: 42px;
+      border: none;
+      border-radius: 12px;
+      background: #ff8b38;
+      color: white;
+      font-size: 26px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .add-to-cart:hover {
+      background: #e96f1d;
+      transform: scale(1.08);
+    }
+
+    .cart-panel {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 85px;
+      right: 20px;
+      width: 340px;
+      max-width: calc(100% - 40px);
+      max-height: 75vh;
+      overflow-y: auto;
+      padding: 22px;
+      background: white;
+      border-radius: 18px;
+      box-shadow: 0 8px 35px #0002;
+    }
+
+    .cart-panel.open {
+      display: block;
+    }
+
+    .cart-panel h2 {
+      margin-top: 0;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .cart-item-info {
+      flex: 1;
+    }
+
+    .cart-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cart-controls button,
+    .close-cart {
+      border: none;
+      border-radius: 7px;
+      padding: 5px 10px;
+      background: #ff8b38;
+      color: white;
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .cart-total {
+      margin-top: 18px;
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .checkout-link {
+      display: block;
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 10px;
+      background: #ff8b38;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    @media (max-width: 768px) {
+      .cart-panel {
+        top: 15px;
+        right: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -15,7 +142,7 @@
       <span class="logo-icon">F</span>
       <span>Food<span class="orange">Go</span></span>
     </a>
-    <nav class="nav-links">
+    <nav class="nav-links" id="navLinks">
       <a href="index.html">Главная</a>
       <a href="restaurants.html">Рестораны</a>
       <a href="menu.html" class="active">Меню</a>
@@ -24,9 +151,19 @@
     </nav>
     <div class="nav-actions">
       <a href="contacts.html" class="register-btn">Оформить заказ</a>
+      <a href="#" class="cart-link" id="cartButton">🛒 Корзина <span class="cart-count">0</span></a>
+      <button class="burger" id="burger" type="button" aria-label="Открыть меню" aria-controls="navLinks" aria-expanded="false">☰</button>
     </div>
   </div>
 </header>
+
+<div class="cart-panel" id="cartPanel">
+  <h2>🛒 Моя корзина</h2>
+  <div id="cartItems"></div>
+  <div class="cart-total">Итого: <span id="cartTotal">0</span> сум</div>
+  <a href="contacts.html" class="checkout-link">Оформить заказ</a>
+  <button class="close-cart" id="closeCart" style="margin-top:10px;">Закрыть</button>
+</div>
 
 <main>
   <section class="page-hero">
@@ -52,56 +189,62 @@
       <div class="page-cards">
 
         <article class="page-card">
-          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=85" alt="Пицца">
+          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=85" alt="Пицца Маргарита">
           <div class="page-card-info">
             <h3>Пицца Маргарита</h3>
             <p>Томатный соус, сыр моцарелла и свежий базилик.</p>
             <b class="orange">55 000 сум</b>
+            <button class="add-to-cart" data-name="Пицца Маргарита" data-price="55000">+</button>
           </div>
         </article>
 
         <article class="page-card" id="burgers">
-          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=85" alt="Бургер">
+          <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=85" alt="Классический бургер">
           <div class="page-card-info">
             <h3>Классический бургер</h3>
             <p>Говяжья котлета, сыр, салат и фирменный соус.</p>
             <b class="orange">42 000 сум</b>
+            <button class="add-to-cart" data-name="Классический бургер" data-price="42000">+</button>
           </div>
         </article>
 
         <article class="page-card" id="national">
-          <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=85" alt="Плов">
+          <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=800&q=85" alt="Узбекский плов">
           <div class="page-card-info">
             <h3>Плов по-узбекски</h3>
             <p>Рис, говядина, морковь и ароматная зира.</p>
             <b class="orange">35 000 сум</b>
+            <button class="add-to-cart" data-name="Плов по-узбекски" data-price="35000">+</button>
           </div>
         </article>
 
         <article class="page-card">
-          <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=800&q=85" alt="Роллы">
+          <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?auto=format&fit=crop&w=800&q=85" alt="Роллы Филадельфия">
           <div class="page-card-info">
             <h3>Роллы Филадельфия</h3>
             <p>Рис, нори, сливочный сыр и лосось.</p>
             <b class="orange">48 000 сум</b>
+            <button class="add-to-cart" data-name="Роллы Филадельфия" data-price="48000">+</button>
           </div>
         </article>
 
         <article class="page-card">
-          <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=85" alt="Самса">
+          <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=85" alt="Самса с мясом">
           <div class="page-card-info">
             <h3>Самса с мясом</h3>
             <p>Хрустящее тесто и сочная мясная начинка.</p>
             <b class="orange">12 000 сум</b>
+            <button class="add-to-cart" data-name="Самса с мясом" data-price="12000">+</button>
           </div>
         </article>
 
         <article class="page-card" id="desserts">
-          <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=85" alt="Десерт">
+          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=85" alt="Шоколадный десерт">
           <div class="page-card-info">
             <h3>Сладкий десерт</h3>
             <p>Нежный десерт для приятного завершения обеда.</p>
             <b class="orange">25 000 сум</b>
+            <button class="add-to-cart" data-name="Сладкий десерт" data-price="25000">+</button>
           </div>
         </article>
 
@@ -131,6 +274,122 @@
     <a href="contacts.html">Контакты</a>
   </div>
 </footer>
+
+<script>
+  const CART_KEY = "foodgo_cart";
+
+  function getCart() {
+    return JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+  }
+
+  function saveCart(cart) {
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    updateCart();
+  }
+
+  function updateCart() {
+    const cart = getCart();
+    const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+    document.querySelectorAll(".cart-count").forEach(el => {
+      el.textContent = count;
+    });
+
+    const itemsContainer = document.getElementById("cartItems");
+    itemsContainer.innerHTML = "";
+
+    let total = 0;
+
+    if (cart.length === 0) {
+      itemsContainer.innerHTML = "<p>Корзина пока пуста.</p>";
+    }
+
+    cart.forEach(item => {
+      total += item.price * item.quantity;
+
+      const row = document.createElement("div");
+      row.className = "cart-item";
+      row.innerHTML = `
+        <div class="cart-item-info">
+          <b>${item.name}</b><br>
+          <small>${item.price.toLocaleString("ru-RU")} сум</small>
+        </div>
+        <div class="cart-controls">
+          <button class="minus">−</button>
+          <span>${item.quantity}</span>
+          <button class="plus">+</button>
+        </div>
+      `;
+
+      row.querySelector(".minus").addEventListener("click", () => changeQuantity(item.name, -1));
+      row.querySelector(".plus").addEventListener("click", () => changeQuantity(item.name, 1));
+      itemsContainer.appendChild(row);
+    });
+
+    document.getElementById("cartTotal").textContent = total.toLocaleString("ru-RU");
+  }
+
+  function addToCart(name, price) {
+    const cart = getCart();
+    const existing = cart.find(item => item.name === name);
+
+    if (existing) {
+      existing.quantity++;
+    } else {
+      cart.push({ name, price: Number(price), quantity: 1 });
+    }
+
+    saveCart(cart);
+  }
+
+  function changeQuantity(name, amount) {
+    const cart = getCart();
+    const item = cart.find(item => item.name === name);
+
+    if (!item) return;
+
+    item.quantity += amount;
+    saveCart(cart.filter(item => item.quantity > 0));
+  }
+
+  document.querySelectorAll(".add-to-cart").forEach(button => {
+    button.addEventListener("click", () => {
+      addToCart(button.dataset.name, button.dataset.price);
+    });
+  });
+
+  document.getElementById("cartButton").addEventListener("click", event => {
+    event.preventDefault();
+    document.getElementById("cartPanel").classList.toggle("open");
+  });
+
+  document.getElementById("closeCart").addEventListener("click", () => {
+    document.getElementById("cartPanel").classList.remove("open");
+  });
+
+  updateCart();
+
+  window.addEventListener("storage", updateCart);
+</script>
+
+<script>
+  const burgerButton = document.getElementById('burger');
+  const navigation = document.getElementById('navLinks');
+
+  burgerButton.addEventListener('click', () => {
+    const isOpen = navigation.classList.toggle('open');
+    burgerButton.setAttribute('aria-expanded', String(isOpen));
+    burgerButton.textContent = isOpen ? '×' : '☰';
+  });
+
+  navigation.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navigation.classList.remove('open');
+      burgerButton.setAttribute('aria-expanded', 'false');
+      burgerButton.textContent = '☰';
+    });
+  });
+</script>
 
 </body>
 </html>
